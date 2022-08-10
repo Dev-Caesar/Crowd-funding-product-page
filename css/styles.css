@@ -436,10 +436,11 @@ label.heading-4 {
 }
 .pledge__details label {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 .pledge-option .pledge-amount__text {
-  padding-left: 3.4rem;
+  padding-left: 4.4rem;
 }
 label span {
   order: 1;
@@ -480,6 +481,43 @@ input[name="pledge-value"] {
   grid-column: 1/2;
   grid-row: 1/1;
 }
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  font: inherit;
+  color: currentColor;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 0.1rem solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(1rem);
+}
+.pledge-option__1 input[type="radio"] {
+  transform: translateY(0rem);
+}
+input[type="radio"]::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: var(--moderate-cyan);
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+}
+
+input[type="radio"]:checked {
+  border: 0.1rem solid var(--dark-gray);
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
 /* MEDIA QUERY */
 
 @media screen and (min-width: 36.56rem) {
@@ -489,6 +527,9 @@ input[name="pledge-value"] {
   }
   .pledge-option .pledge-amount__text {
     padding-left: 2rem;
+  }
+  input[type="radio"] {
+    transform: translateY(0);
   }
 }
 
@@ -566,7 +607,7 @@ input[name="pledge-value"] {
     height: 4rem;
     background-color: var(--dark-gray);
   }
-  .stand__description {
+  .pledge-option .stand__description {
     width: 90%;
     transform: translateX(3rem);
   }
