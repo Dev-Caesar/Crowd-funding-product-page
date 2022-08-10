@@ -536,6 +536,9 @@ input[type="radio"]::before {
 label.heading-4:hover {
   color: var(--moderate-cyan);
 }
+.pledge-option__4 label.heading-4:hover {
+  color: unset;
+}
 input[type="radio"]:checked {
   outline: none;
   border: 0.1rem solid var(--dark-gray);
