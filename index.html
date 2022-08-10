@@ -104,10 +104,11 @@
             your computer to allow notepads, pens, and USB sticks to be stored under the stand.
           </p>
         </section>
+
         <section class="stand__container bamboo-stand__container">
           <header class="stand__header stand__header-1">
             <h4 class="heading heading-4">Bamboo Stand</h4>
-            <p class="pledge__amount">Pledge $25 or more</p>
+            <p class="pledge-amount__text">Pledge $25 or more</p>
           </header>
           <p class="stand__description">
             You get an ergonomic stand made of natural bamboo. You've helped us launch our
@@ -122,7 +123,7 @@
         <section class="stand__container black-edition-stand__container">
           <header class="stand__header stand__header-2">
             <h4 class="heading heading-4">Black Edition Stand</h4>
-            <p class="pledge__amount">Pledge $75 or more</p>
+            <p class="pledge-amount__text">Pledge $75 or more</p>
           </header>
           <p class="stand__description">
             You get a Black Special Edition computer stand and a personal thank you. You'll be added
@@ -137,7 +138,7 @@
         <section class="stand__container mahogany-edition__container">
           <header class="stand__header stand__header--disabled">
             <h4 class="heading heading-4 heading-4--disabled">Mahogany Special Edition</h4>
-            <p class="pledge__amount pledge__amount--disabled">Pledge $200 or more</p>
+            <p class="pledge-amount__text pledge-amount__text--disabled">Pledge $200 or more</p>
           </header>
           <p class="stand__description stand__description--disabled">
             You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you.
@@ -152,67 +153,104 @@
           </div>
         </section>
       </section>
-      <section class="selection-modal__container">
-        <div class="modal__close">
-          <img src="./images/icon-close-modal.svg" alt="close icon" class="close__modal" />
+
+      <section class="selection-modal__section">
+        <button id="close-modal__btn" class="close-modal__container">
+          <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+            <path
+              class="close-modal__icon"
+              d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
+              fill="#000"
+              fill-rule="evenodd"
+              opacity=".4"
+            />
+          </svg>
+        </button>
+        <div class="selection-modal__header">
+          <h2 class="heading-2 heading">Back this project</h2>
+          <p class="modal-text text">
+            Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
+          </p>
         </div>
-        <h2 class="heading-2">Back this project</h2>
-        <p class="modal-text text">
-          Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
-        </p>
-        <section class="selection-modal selection-modal__1">
-          <input type="radio" name="select-pledge" id="select-pledge" />
-          <div class="pledge__details">
-            <header class="pledge__header">
-              <h4 class="heading heading-4">Pledge with no reward</h4>
-            </header>
-            <p class="text">
-              Choose to support us without a reward if you simply believe in our project. As a
-              backer, you will be signed up to receive product updates via email.
-            </p>
+
+        <!--pledge option 1 -->
+        <section class="pledge-option pledge-option__1">
+          <div class="select-pledge__container">
+            <input type="radio" name="select-pledge" id="no-reward" />
+            <label for="no-reward" class="heading heading-4"> Pledge with no reward</label>
           </div>
+          <p class="stand__description">
+            Choose to support us without a reward if you simply believe in our project. As a backer,
+            you will be signed up to receive product updates via email.
+          </p>
         </section>
 
-        <section class="selection-modal selection-modal__1">
-          <input type="radio" name="select-pledge" id="select-pledge" />
-          <div class="pledge__details">
-            <header class="pledge__header">
-              <h4 class="heading heading-4">Bamboo Stand</h4>
-              <p class="pledge__amount">Pledge $25 or more</p>
-              <h5 class="heading heading-5">101 <span>left</span></h5>
-            </header>
-            <p class="text">
-              You get an ergonomic stand made of natural bamboo. You've helped us launch our
-              promotional campaign, and you’ll be added to a special Backer member list.
-            </p>
+        <!-- pledge option 2 -->
+        <section class="pledge-option pledge-option__2">
+          <div class="select-pledge__container">
+            <input type="radio" name="select-pledge" id="bamboo-edition" />
+            <div class="pledge__details">
+              <label for="bamboo-edition" class="heading heading-4">Bamboo Stand</label>
+              <p class="pledge-amount__text">Pledge $25 or more</p>
+            </div>
+          </div>
+          <p class="stand__description">
+            You get an ergonomic stand made of natural bamboo. You've helped us launch our
+            promotional campaign, and you’ll be added to a special Backer member list.
+          </p>
+          <h5 class="heading heading-5">101 <span>left</span></h5>
+          <div class="make-pledge__container">
+            <p>Enter your pledge</p>
+            <div class="pledge-inputs">
+              <input type="number" name="pledge-value" id="pledge-value" value="25" />
+              <button>Continue</button>
+            </div>
           </div>
         </section>
-        <section class="selection-modal selection-modal__1">
-          <input type="radio" name="select-pledge" id="select-pledge" />
-          <div class="pledge__details">
-            <header class="pledge__header">
-              <h4 class="heading heading-4">Black Edition Stand</h4>
-              <p class="pledge__amount">Pledge $75 or more</p>
-              <h5 class="heading heading-5">64 <span>left</span></h5>
-            </header>
-            <p class="text">
-              Choose to support us without a reward if you simply believe in our project. As a
-              backer, you will be signed up to receive product updates via email.
-            </p>
+        <!-- pledge option 3 -->
+        <section class="pledge-option pledge-option__3">
+          <div class="select-pledge__container">
+            <input type="radio" name="select-pledge" id="black-edition" />
+            <div class="pledge__details">
+              <label for="black-edition" class="heading heading-4">Black Edition Stand</label>
+              <p class="pledge-amount__text">Pledge $75 or more</p>
+            </div>
+          </div>
+          <p class="stand__description">
+            Choose to support us without a reward if you simply believe in our project. As a backer,
+            you will be signed up to receive product updates via email.
+          </p>
+          <h5 class="heading heading-5">65 <span>left</span></h5>
+          <div class="make-pledge__container">
+            <p>Enter your pledge</p>
+            <div class="pledge-inputs">
+              <input type="number" name="pledge-value" id="pledge-value" value="75" />
+              <button>Continue</button>
+            </div>
           </div>
         </section>
-        <section class="selection-modal selection-modal__1">
-          <input type="radio" name="select-pledge" id="select-pledge" />
-          <div class="pledge__details">
-            <header class="pledge__header">
-              <h4 class="heading heading-4">Mahogany Special Edition</h4>
-              <p class="pledge__amount">Pledge $200 or more</p>
-              <h5 class="heading heading-5">0 <span>left</span></h5>
-            </header>
-            <p class="text">
-              You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank
-              you. You’ll be added to our Backer member list. Shipping is included
-            </p>
+        <!-- pledge option 4 -->
+        <section class="pledge-option pledge-option__4">
+          <div class="select-pledge__container">
+            <input type="radio" name="select-pledge" id="mahogany-edition" disabled />
+            <div class="pledge__details">
+              <label for="mahogany-edition " class="heading heading-4 heading-4--disabled"
+                >Mahogany Special Edition</label
+              >
+              <p class="pledge-amount__text pledge-amount__text--disabled">Pledge $200 or more</p>
+            </div>
+          </div>
+          <p class="stand__description stand__description--disabled">
+            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you.
+            You’ll be added to our Backer member list. Shipping is included
+          </p>
+          <h5 class="heading heading-5--disabled">0 <span>left</span></h5>
+          <div class="make-pledge__container">
+            <p>Enter your pledge</p>
+            <div class="pledge-inputs">
+              <input type="number" name="pledge-value" id="pledge-value" value="25" />
+              <button>Continue</button>
+            </div>
           </div>
         </section>
       </section>
@@ -226,7 +264,7 @@
     <!-- Enter your pledge $75 Continue -->
     <!-- Selected pledge end -->
 
-     <!-- Selected pledge  start -->
+    <!-- Selected pledge  start -->
     <!-- Enter your pledge $200 Continue -->
     <!-- Selected pledge end -->
 
