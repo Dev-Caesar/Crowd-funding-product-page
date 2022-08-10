@@ -389,12 +389,18 @@ progress::-moz-progress-bar {
   border: var(--border);
   border-radius: 1.2rem;
   margin-bottom: 2rem;
-  padding: 2rem;
   text-align: start;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   position: relative;
+}
+.pledge-option > .pledge-option__header {
+  padding: 2rem;
+}
+.pledge-option > .pledge-input__section {
+  border-top: var(--border);
+  padding: 2rem;
 }
 
 .close-modal__container {
@@ -431,6 +437,10 @@ label.heading-4 {
   font-size: 1.6rem;
   font-weight: 400;
 }
+
+.pledge-option .stand__description {
+  padding-top: 1rem;
+}
 .pledge__details {
   display: flex;
 }
@@ -438,6 +448,7 @@ label.heading-4 {
   display: flex;
   align-items: center;
   gap: 2rem;
+  cursor: pointer;
 }
 .pledge-option .pledge-amount__text {
   padding-left: 4.4rem;
@@ -456,8 +467,8 @@ label span {
   align-items: center;
   gap: 2rem;
   padding-top: 2rem;
-  border-top: var(--border);
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -481,6 +492,19 @@ input[name="pledge-value"] {
   grid-column: 1/2;
   grid-row: 1/1;
 }
+input[name="pledge-value"]::before {
+  content: "$";
+}
+input[name="pledge-value"]:hover {
+  border: 1px solid var(--moderate-cyan);
+}
+input[name="pledge-value"]:active {
+  border: 1px solid var(--dark-cyan);
+}
+input[name="pledge-value"]:focus {
+  border: 1px solid var(--moderate-cyan);
+  caret-color: var(--moderate-cyan);
+}
 input[type="radio"] {
   -webkit-appearance: none;
   appearance: none;
@@ -501,8 +525,6 @@ input[type="radio"] {
 }
 input[type="radio"]::before {
   content: "";
-  width: 100%;
-  height: 100%;
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
@@ -511,12 +533,26 @@ input[type="radio"]::before {
   transition: 120ms transform ease-in-out;
 }
 
+label.heading-4:hover {
+  color: var(--moderate-cyan);
+}
 input[type="radio"]:checked {
+  outline: none;
   border: 0.1rem solid var(--dark-gray);
 }
 
 input[type="radio"]:checked::before {
   transform: scale(1);
+}
+
+input[type="radio"]:focus {
+  border: 0.1rem solid var(--dark-cyan);
+}
+input[type="radio"]:active {
+  border: 0.1rem solid var(--dark-cyan);
+}
+.hide-make-pledge {
+  display: none;
 }
 /* MEDIA QUERY */
 
@@ -609,6 +645,6 @@ input[type="radio"]:checked::before {
   }
   .pledge-option .stand__description {
     width: 90%;
-    transform: translateX(3rem);
+    transform: translateX(4rem);
   }
 }
