@@ -651,9 +651,7 @@ input[type="radio"]:active {
 .success-modal img {
   width: clamp(6rem, 4.7324rem + 3.3803vw, 9.6rem);
 }
-.success__text {
-  line-height: 1.5;
-}
+
 /* MEDIA QUERY */
 
 @media screen and (min-width: 36.56rem) {
