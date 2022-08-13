@@ -154,6 +154,7 @@
         </section>
       </section>
 
+      <!-- MODAL SELECTION -->
       <section class="selection-modal__section">
         <button id="close-modal__btn" class="close-modal__container">
           <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
@@ -193,6 +194,7 @@
             <div class="make-pledge__container">
               <p>Enter your pledge</p>
               <div class="pledge-inputs">
+                <span>$</span>
                 <input type="number" name="pledge-value" id="pledge-value" value="25" />
                 <button>Continue</button>
               </div>
@@ -201,7 +203,7 @@
         </section>
 
         <!-- pledge option 2 -->
-        <section class="pledge-option pledge-option__2">
+        <section class="pledge-option pledge-option__2" id="pledge-option--active">
           <div class="pledge-option__header">
             <div class="select-pledge__container">
               <div class="pledge__details">
@@ -222,6 +224,7 @@
             <div class="make-pledge__container">
               <p>Enter your pledge</p>
               <div class="pledge-inputs">
+                <span>$</span>
                 <input type="number" name="pledge-value" id="pledge-value" value="25" />
                 <button>Continue</button>
               </div>
@@ -250,6 +253,7 @@
             <div class="make-pledge__container">
               <p>Enter your pledge</p>
               <div class="pledge-inputs">
+                <span>$</span>
                 <input type="number" name="pledge-value" id="pledge-value" value="75" />
                 <button>Continue</button>
               </div>
@@ -276,28 +280,18 @@
           </div>
         </section>
       </section>
+      <!-- SUCCESS MODAL SECTION -->
+
+      <section class="success-modal">
+        <img src="images/icon-check.svg" alt="check icon" />
+        <h3 class="heading-3 heading">Thanks for your support!</h3>
+        <p class="success__text">
+          Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser
+          worldwide. You will get an email once our campaign is completed.
+        </p>
+        <button>Got it!</button>
+      </section>
     </main>
-
-    <!-- Selected pledge start -->
-    <!-- Enter your pledge $25 Continue -->
-    <!-- Selected pledge end -->
-
-    <!-- Selected pledge start -->
-    <!-- Enter your pledge $75 Continue -->
-    <!-- Selected pledge end -->
-
-    <!-- Selected pledge  start -->
-    <!-- Enter your pledge $200 Continue -->
-    <!-- Selected pledge end -->
-
-    <!-- Selection modal end -->
-
-    <!-- Success modal start -->
-
-    <!-- Thanks for your support! Your pledge brings us one step closer to sharing Mastercraft Bamboo
-    Monitor Riser worldwide. You will get an email once our campaign is completed. Got it! -->
-
-    <!-- Success modal end -->
     <script src="./JS/app.js"></script>
   </body>
 </html>
