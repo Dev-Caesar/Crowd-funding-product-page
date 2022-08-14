@@ -3,10 +3,10 @@
 // DOM ELEMENTS
 const navMenu = document.querySelector('.nav__menu');
 const menuBtn = document.querySelector('.nav__btns');
-const hamburgerMenu = document.querySelector('.hamburger-icon');
-const closeIcon = document.querySelector('.close-icon');
+const openMobileMenuBtn = document.querySelector('.hamburger-icon');
+const closeMobileMenuBtn = document.querySelector('.close-icon');
 const overlay = document.querySelector('.overlay');
-let hidden = true;
+let mobileMenuhidden = true;
 const backProjectBtn = document.querySelector('.back-project__btn');
 const makeSelectionModal = document.querySelector('.make-selection__section');
 
@@ -14,24 +14,24 @@ const makeSelectionModal = document.querySelector('.make-selection__section');
 // open the mobile menu
 const openMobileMenu = function (e) {
   navMenu.classList.remove('hidden-menu');
-  hamburgerMenu.classList.add('hidden');
-  closeIcon.classList.remove('hidden');
+  openMobileMenuBtn.classList.add('hidden');
+  closeMobileMenuBtn.classList.remove('hidden');
   overlay.classList.remove('hidden');
-  hidden = false;
+  mobileMenuhidden = false;
 };
 
 // close the mobile menu
 const closeMobileMenu = function (e) {
   navMenu.classList.add('hidden-menu');
-  hamburgerMenu.classList.remove('hidden');
-  closeIcon.classList.add('hidden');
+  openMobileMenuBtn.classList.remove('hidden');
+  closeMobileMenuBtn.classList.add('hidden');
   overlay.classList.add('hidden');
-  hidden = true;
+  mobileMenuhidden = true;
 };
 
 // add event listener
 menuBtn.addEventListener('click', function (e) {
-  if (hidden) {
+  if (mobileMenuhidden) {
     openMobileMenu();
   } else {
     closeMobileMenu();
@@ -40,7 +40,7 @@ menuBtn.addEventListener('click', function (e) {
 
 overlay.addEventListener('click', function (e) {
   closeMobileMenu();
-  makeSelectionModal.classList.toggle('hidden');
+  makeSelectionModal.classList.add('hidden');
 });
 
 // || MAKE SELECTION FEATURE || //
