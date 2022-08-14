@@ -1,6 +1,7 @@
 'use strict';
 
 // DOM ELEMENTS
+const bodyEl = document.querySelector('body');
 const navMenu = document.querySelector('.nav__menu');
 const menuBtn = document.querySelector('.nav__btns');
 const openMobileMenuBtn = document.querySelector('.hamburger-icon');
@@ -17,6 +18,7 @@ const openMobileMenu = function (e) {
   openMobileMenuBtn.classList.add('hidden');
   closeMobileMenuBtn.classList.remove('hidden');
   overlay.classList.remove('hidden');
+  bodyEl.classList.add('position-fixed');
   mobileMenuhidden = false;
 };
 
@@ -26,6 +28,7 @@ const closeMobileMenu = function (e) {
   openMobileMenuBtn.classList.remove('hidden');
   closeMobileMenuBtn.classList.add('hidden');
   overlay.classList.add('hidden');
+  bodyEl.classList.remove('position-fixed');
   mobileMenuhidden = true;
 };
 
