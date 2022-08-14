@@ -1,6 +1,5 @@
 'use strict';
 
-// THE  MOBILE MENU FEATURE
 // DOM ELEMENTS
 const navMenu = document.querySelector('.nav__menu');
 const menuBtn = document.querySelector('.nav__btns');
@@ -8,7 +7,10 @@ const hamburgerMenu = document.querySelector('.hamburger-icon');
 const closeIcon = document.querySelector('.close-icon');
 const overlay = document.querySelector('.overlay');
 let hidden = true;
+const backProjectBtn = document.querySelector('.back-project__btn');
+const makeSelectionModal = document.querySelector('.make-selection__section');
 
+// THE  MOBILE MENU FEATURE
 // open the mobile menu
 const openMobileMenu = function (e) {
   navMenu.classList.remove('hidden-menu');
@@ -38,4 +40,13 @@ menuBtn.addEventListener('click', function (e) {
 
 overlay.addEventListener('click', function (e) {
   closeMobileMenu();
+  makeSelectionModal.classList.toggle('hidden');
+});
+
+// || MAKE SELECTION FEATURE || //
+
+// display make selection window
+backProjectBtn.addEventListener('click', function (e) {
+  makeSelectionModal.classList.remove('hidden');
+  overlay.classList.toggle('hidden');
 });
