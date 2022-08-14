@@ -644,7 +644,7 @@ input[type='radio']:active {
 }
 
 .hide-make-pledge {
-  /* display: none; */
+  display: none;
 }
 
 /* SUCCESS MODAL STYLES */
