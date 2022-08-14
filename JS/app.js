@@ -1,13 +1,15 @@
 'use strict';
 
-// DOM ELEMENTS FOR THE MOBILE MENU
+// THE  MOBILE MENU FEATURE
+// DOM ELEMENTS
 const navMenu = document.querySelector('.nav__menu');
-const menuBtn = document.querySelector('.nav__btn');
+const menuBtn = document.querySelector('.nav__btns');
 const hamburgerMenu = document.querySelector('.hamburger-icon');
 const closeIcon = document.querySelector('.close-icon');
 const overlay = document.querySelector('.overlay');
 let hidden = true;
 
+// open the mobile menu
 const openMobileMenu = function (e) {
   navMenu.classList.remove('hidden-menu');
   hamburgerMenu.classList.add('hidden');
@@ -16,6 +18,7 @@ const openMobileMenu = function (e) {
   hidden = false;
 };
 
+// close the mobile menu
 const closeMobileMenu = function (e) {
   navMenu.classList.add('hidden-menu');
   hamburgerMenu.classList.remove('hidden');
@@ -24,6 +27,7 @@ const closeMobileMenu = function (e) {
   hidden = true;
 };
 
+// add event listener
 menuBtn.addEventListener('click', function (e) {
   if (hidden) {
     openMobileMenu();
