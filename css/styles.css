@@ -61,7 +61,7 @@ img {
   z-index: 3;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: rgba(0, 0, 0, 0.518);
 }
 
 .header {
@@ -438,7 +438,7 @@ progress::-moz-progress-bar {
   padding-bottom: 2rem;
 }
 
-.make-selection__section > section {
+.pledge-option {
   background-color: #fff;
   border: var(--border);
   border-radius: 1.2rem;
@@ -449,7 +449,7 @@ progress::-moz-progress-bar {
   gap: 2rem;
   position: relative;
 }
-#pledge-option--active {
+.pledge-option--active {
   border: var(--border-active);
 }
 

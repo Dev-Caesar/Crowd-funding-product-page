@@ -6,11 +6,13 @@ const navMenu = document.querySelector('.nav__menu');
 const menuBtn = document.querySelector('.nav__btns');
 const openMobileMenuBtn = document.querySelector('.hamburger-icon');
 const closeMobileMenuBtn = document.querySelector('.close-icon');
+const closeMakeSelectionBtn = document.querySelector('#close-modal__btn');
 const overlay = document.querySelector('.overlay');
 let mobileMenuhidden = true;
 const backProjectBtn = document.querySelector('.back-project__btn');
 const makeSelectionModal = document.querySelector('.make-selection__section');
-
+const pledgeOptions = document.querySelectorAll('.pledge-option');
+const pledgeInputSections = document.querySelectorAll('.pledge-input__section');
 // THE  MOBILE MENU FEATURE
 // open the mobile menu
 const openMobileMenu = function (e) {
@@ -32,7 +34,7 @@ const closeMobileMenu = function (e) {
   mobileMenuhidden = true;
 };
 
-// add event listener
+//
 menuBtn.addEventListener('click', function (e) {
   if (mobileMenuhidden) {
     openMobileMenu();
@@ -46,10 +48,39 @@ overlay.addEventListener('click', function (e) {
   makeSelectionModal.classList.add('hidden');
 });
 
-// || MAKE SELECTION FEATURE || //
-
-// display make selection window
-backProjectBtn.addEventListener('click', function (e) {
-  makeSelectionModal.classList.remove('hidden');
+//  selection modal feature
+const closeMakeSelectionModal = function (e) {
+  makeSelectionModal.classList.toggle('hidden');
   overlay.classList.toggle('hidden');
+};
+backProjectBtn.addEventListener('click', closeMakeSelectionModal);
+closeMakeSelectionBtn.addEventListener('click', closeMakeSelectionModal);
+
+// attach event listener to make selection modal
+makeSelectionModal.addEventListener('click', function (e) {
+  let targetEl = e.target;
+  if (targetEl.className === 'select-pledge' && targetEl.checked) {
+    let parentSibling = targetEl.closest(
+      '.pledge-option__header'
+    ).nextElementSibling;
+    // only add the active border class to the current container
+    for (const curOption of pledgeOptions) {
+      let pledgeOption = targetEl.closest('.pledge-option');
+      if (!curOption.querySelector('.pledge-input__section')) return;
+      if (
+        curOption === pledgeOption ||
+        pledgeOption.classList.contains('pledge-option-active')
+      ) {
+        curOption.classList.add('pledge-option--active');
+        curOption
+          .querySelector('.pledge-input__section')
+          .classList.remove('hide-make-pledge');
+      } else {
+        curOption.classList.remove('pledge-option--active');
+        curOption
+          .querySelector('.pledge-input__section')
+          .classList.add('hide-make-pledge');
+      }
+    }
+  }
 });
