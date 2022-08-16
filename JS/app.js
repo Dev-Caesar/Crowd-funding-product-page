@@ -14,29 +14,14 @@ const makeSelectionModal = document.querySelector('.make-selection__section');
 const pledgeOptions = document.querySelectorAll('.pledge-option');
 const pledgeInputSections = document.querySelectorAll('.pledge-input__section');
 const successModal = document.querySelector('.success-modal');
+const progressBar = document.querySelector('progress');
+const totalMoneyEl = document.querySelector('#total-money');
+const totalBackersEl = document.querySelector('#total-backers');
 
-// THE  MOBILE MENU FEATURE
-// open the mobile menu
-const openMobileMenu = function (e) {
-  navMenu.classList.remove('hidden-menu');
-  openMobileMenuBtn.classList.add('hidden');
-  closeMobileMenuBtn.classList.remove('hidden');
-  overlay.classList.remove('hidden');
-  bodyEl.classList.add('position-fixed');
-  mobileMenuhidden = false;
-};
+let progressBarValue = 89.914;
+let totalMoney = 89914;
+let totalBackers = 5007;
 
-// close the mobile menu
-const closeMobileMenu = function (e) {
-  navMenu.classList.add('hidden-menu');
-  openMobileMenuBtn.classList.remove('hidden');
-  closeMobileMenuBtn.classList.add('hidden');
-  overlay.classList.add('hidden');
-  bodyEl.classList.remove('position-fixed');
-  mobileMenuhidden = true;
-};
-
-//
 menuBtn.addEventListener('click', function (e) {
   if (mobileMenuhidden) {
     openMobileMenu();
@@ -51,65 +36,26 @@ overlay.addEventListener('click', function (e) {
   successModal.classList.add('hidden');
 });
 
-//  selection modal feature
-const closeMakeSelectionModal = function (e) {
-  makeSelectionModal.classList.toggle('hidden');
-  overlay.classList.toggle('hidden');
-};
-
 backProjectBtn.addEventListener('click', closeMakeSelectionModal);
 closeMakeSelectionBtn.addEventListener('click', closeMakeSelectionModal);
 
-// attach event listener to make selection modal
+// attach event listener to make selection modals
 makeSelectionModal.addEventListener('click', function (e) {
-  // use event delegation
   let targetEl = e.target;
+  // use event delegation to target the acive radio button
   if (targetEl.className === 'select-pledge' && targetEl.checked) {
-    let parentSibling = targetEl.closest(
-      '.pledge-option__header'
-    ).nextElementSibling;
-
-    // use event delegation to target the selected radio button
-    for (const curOption of pledgeOptions) {
-      if (!curOption.querySelector('.pledge-input__section')) return;
-      let pledgeOption = targetEl.closest('.pledge-option');
-      if (
-        curOption === pledgeOption ||
-        pledgeOption.classList.contains('pledge-option-active')
-      ) {
-        curOption.classList.add('pledge-option--active');
-        curOption
-          .querySelector('.pledge-input__section')
-          .classList.remove('hide-make-pledge');
-      } else {
-        curOption.classList.remove('pledge-option--active');
-        curOption
-          .querySelector('.pledge-input__section')
-          .classList.add('hide-make-pledge');
-      }
-    }
+    selectPledgeOption(targetEl);
   }
   // use event delegation to target the continue button
   if (targetEl.className === 'continue-btn') {
-    let pledgeInput = targetEl.previousElementSibling;
-    let pledgeValue = +pledgeInput.value;
-    let dataPledgeValue = pledgeInput.dataset.pledgeValue;
-    if (Number.isFinite(pledgeValue) && pledgeValue >= dataPledgeValue) {
-      pledgeInput.style.border = '2px solid var(--moderate-cyan)';
-      let parentEl = targetEl.closest('.pledge-option');
-      parentEl.classList.remove('pledge-option--active');
-      parentEl.querySelector('input[type="radio"]').checked = false;
-      parentEl
-        .querySelector('.pledge-input__section')
-        .classList.add('hide-make-pledge');
-      closeMakeSelectionModal();
-      overlay.classList.remove('hidden');
-      successModal.classList.remove('hidden');
-      bodyEl.classList.add('position-fixed');
-    }
-    if (!Number.isFinite(pledgeValue) || pledgeValue <= dataPledgeValue - 1) {
-      pledgeInput.style.border = '2px solid #e63946';
-      return;
-    }
+    makeAPledge(targetEl);
+  }
+});
+
+successModal.addEventListener('click', function (e) {
+  if (e.target.classList.contains('got-it')) {
+    successModal.classList.add('hidden');
+    overlay.classList.add('hidden');
+    bodyEl.classList.remove('position-fixed');
   }
 });
