@@ -13,6 +13,8 @@ const backProjectBtn = document.querySelector('.back-project__btn');
 const makeSelectionModal = document.querySelector('.make-selection__section');
 const pledgeOptions = document.querySelectorAll('.pledge-option');
 const pledgeInputSections = document.querySelectorAll('.pledge-input__section');
+const successModal = document.querySelector('.success-modal');
+
 // THE  MOBILE MENU FEATURE
 // open the mobile menu
 const openMobileMenu = function (e) {
@@ -46,6 +48,7 @@ menuBtn.addEventListener('click', function (e) {
 overlay.addEventListener('click', function (e) {
   closeMobileMenu();
   makeSelectionModal.classList.add('hidden');
+  successModal.classList.add('hidden');
 });
 
 //  selection modal feature
@@ -53,20 +56,23 @@ const closeMakeSelectionModal = function (e) {
   makeSelectionModal.classList.toggle('hidden');
   overlay.classList.toggle('hidden');
 };
+
 backProjectBtn.addEventListener('click', closeMakeSelectionModal);
 closeMakeSelectionBtn.addEventListener('click', closeMakeSelectionModal);
 
 // attach event listener to make selection modal
 makeSelectionModal.addEventListener('click', function (e) {
+  // use event delegation
   let targetEl = e.target;
   if (targetEl.className === 'select-pledge' && targetEl.checked) {
     let parentSibling = targetEl.closest(
       '.pledge-option__header'
     ).nextElementSibling;
-    // only add the active border class to the current container
+
+    // use event delegation to target the selected radio button
     for (const curOption of pledgeOptions) {
-      let pledgeOption = targetEl.closest('.pledge-option');
       if (!curOption.querySelector('.pledge-input__section')) return;
+      let pledgeOption = targetEl.closest('.pledge-option');
       if (
         curOption === pledgeOption ||
         pledgeOption.classList.contains('pledge-option-active')
@@ -81,6 +87,28 @@ makeSelectionModal.addEventListener('click', function (e) {
           .querySelector('.pledge-input__section')
           .classList.add('hide-make-pledge');
       }
+    }
+  }
+  // use event delegation to target the continue button
+  if (targetEl.className === 'continue-btn') {
+    let pledgeInput = targetEl.previousElementSibling;
+    let pledgeValue = +pledgeInput.value;
+    let dataPledgeValue = pledgeInput.dataset.pledgeValue;
+    if (Number.isFinite(pledgeValue) && pledgeValue >= dataPledgeValue) {
+      pledgeInput.style.border = '2px solid var(--moderate-cyan)';
+      let parentEl = targetEl.closest('.pledge-option');
+      parentEl.classList.remove('pledge-option--active');
+      parentEl.querySelector('input[type="radio"]').checked = false;
+      parentEl
+        .querySelector('.pledge-input__section')
+        .classList.add('hide-make-pledge');
+      closeMakeSelectionModal();
+      overlay.classList.remove('hidden');
+      successModal.classList.remove('hidden');
+    }
+    if (!Number.isFinite(pledgeValue) || pledgeValue <= dataPledgeValue - 1) {
+      pledgeInput.style.border = '2px solid #e63946';
+      return;
     }
   }
 });

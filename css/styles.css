@@ -645,6 +645,12 @@ input[type='radio']:active {
 
 /* SUCCESS MODAL STYLES */
 .success-modal {
+  z-index: 6;
+  position: absolute;
+  top: 35%;
+  width: 94vw;
+  max-width: 50rem;
+  padding: 4rem 2rem;
   gap: 2rem;
 }
 .success-modal img {
@@ -716,6 +722,7 @@ input[type='radio']:active {
 
   .make-pledge__container {
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 
