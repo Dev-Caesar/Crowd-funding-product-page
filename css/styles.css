@@ -422,7 +422,7 @@ progress::-moz-progress-bar {
 .make-selection__section {
   z-index: 6;
   position: absolute;
-  top: 6%;
+  top: 20%;
   width: 90vw;
   max-width: inherit;
   padding: 2rem;
