@@ -422,7 +422,7 @@ progress::-moz-progress-bar {
 .make-selection__section {
   z-index: 6;
   position: absolute;
-  top: 35%;
+  top: 22%;
   width: 90vw;
   max-width: inherit;
   padding: 2rem;
@@ -647,7 +647,7 @@ input[type='radio']:active {
 .success-modal {
   z-index: 6;
   position: absolute;
-  top: 35%;
+  top: 8%;
   width: 94vw;
   max-width: 50rem;
   padding: 4rem 2rem;

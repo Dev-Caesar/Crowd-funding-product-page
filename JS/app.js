@@ -105,6 +105,7 @@ makeSelectionModal.addEventListener('click', function (e) {
       closeMakeSelectionModal();
       overlay.classList.remove('hidden');
       successModal.classList.remove('hidden');
+      bodyEl.classList.add('position-fixed');
     }
     if (!Number.isFinite(pledgeValue) || pledgeValue <= dataPledgeValue - 1) {
       pledgeInput.style.border = '2px solid #e63946';
