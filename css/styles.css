@@ -767,6 +767,8 @@ input[type='radio']:active {
 
   .stats {
     flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
   }
 
   .divider {
