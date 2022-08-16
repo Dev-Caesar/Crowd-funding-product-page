@@ -647,7 +647,7 @@ input[type='radio']:active {
 .success-modal {
   z-index: 6;
   position: absolute;
-  top: 8%;
+  top: 5%;
   width: 94vw;
   max-width: 50rem;
   padding: 4rem 2rem;
