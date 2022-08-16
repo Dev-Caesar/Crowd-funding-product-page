@@ -422,7 +422,7 @@ progress::-moz-progress-bar {
 .make-selection__section {
   z-index: 6;
   position: absolute;
-  top: 22%;
+  top: 6%;
   width: 90vw;
   max-width: inherit;
   padding: 2rem;
@@ -778,5 +778,8 @@ input[type='radio']:active {
   .pledge-option .stand__description {
     width: 90%;
     transform: translateX(4rem);
+  }
+  .make-selection__section {
+    top: 22%;
   }
 }
