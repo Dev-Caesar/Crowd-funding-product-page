@@ -1,6 +1,3 @@
-'use strict';
-
-// DOM ELEMENTS
 const bodyEl = document.querySelector('body');
 const navMenu = document.querySelector('.nav__menu');
 const menuBtn = document.querySelector('.nav__btns');
@@ -17,11 +14,9 @@ const successModal = document.querySelector('.success-modal');
 const progressBar = document.querySelector('progress');
 const totalMoneyEl = document.querySelector('#total-money');
 const totalBackersEl = document.querySelector('#total-backers');
-
 let progressBarValue = 89.914;
 let totalMoney = 89914;
 let totalBackers = 5007;
-
 menuBtn.addEventListener('click', function (e) {
   if (mobileMenuhidden) {
     openMobileMenu();
@@ -29,7 +24,6 @@ menuBtn.addEventListener('click', function (e) {
     closeMobileMenu();
   }
 });
-
 overlay.addEventListener('click', function (e) {
   closeMobileMenu();
   makeSelectionModal.classList.add('hidden');
@@ -38,20 +32,15 @@ overlay.addEventListener('click', function (e) {
 
 backProjectBtn.addEventListener('click', closeMakeSelectionModal);
 closeMakeSelectionBtn.addEventListener('click', closeMakeSelectionModal);
-
-// attach event listener to make selection modals
 makeSelectionModal.addEventListener('click', function (e) {
   let targetEl = e.target;
-  // use event delegation to target the acive radio button
   if (targetEl.className === 'select-pledge' && targetEl.checked) {
     selectPledgeOption(targetEl);
   }
-  // use event delegation to target the continue button
   if (targetEl.className === 'continue-btn') {
     makeAPledge(targetEl);
   }
 });
-
 successModal.addEventListener('click', function (e) {
   if (e.target.classList.contains('got-it')) {
     successModal.classList.add('hidden');

@@ -7,7 +7,6 @@ const openMobileMenu = function (e) {
   bodyEl.classList.add('position-fixed');
   mobileMenuhidden = false;
 };
-
 // close the mobile menu
 const closeMobileMenu = function (e) {
   navMenu.classList.add('hidden-menu');
@@ -18,7 +17,6 @@ const closeMobileMenu = function (e) {
   mobileMenuhidden = true;
 };
 
-// update dom elements
 const updateDomData = function (value) {
   totalMoney += value;
   progressBarValue = ((totalMoney / 100000) * 100).toFixed(2);

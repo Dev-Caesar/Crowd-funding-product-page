@@ -1,2 +1,4 @@
 ## ignore .prettierrc
 .prettierrc
+node_modules
+.eslintrc.js
